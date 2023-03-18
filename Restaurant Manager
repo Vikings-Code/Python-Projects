@@ -1,0 +1,32 @@
+import tkinter as tk
+
+root = tk.Tk()
+root.title("Restaurant Management System")
+root.geometry("800x600")
+# Create a label for the main screen
+label = tk.Label(root, text="Welcome to the Restaurant Management System")
+label.pack()
+
+# Create a button for the menu screen
+menu_button = tk.Button(root, text="View Menu")
+menu_button.pack()
+# Define a function to display the menu when the menu button is clicked
+def view_menu():
+    menu_window = tk.Toplevel(root)
+    menu_window.title("Menu")
+    menu_window.geometry("600x400")
+    
+    # Create a label and list box to display the menu items
+    menu_label = tk.Label(menu_window, text="Menu")
+    menu_label.pack()
+    
+    menu_listbox = tk.Listbox(menu_window)
+    menu_listbox.pack()
+    
+    # Add some example menu items
+    menu_items = ["Pizza", "Burger", "Salad", "Fries"]
+    for item in menu_items:
+        menu_listbox.insert(tk.END, item)
+        
+# Bind the view_menu function to the menu button
+menu_button.config(command=view_menu)
